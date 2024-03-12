@@ -32,15 +32,24 @@ export const setRootEl = (el) => {
   
   const renderView = (pathname, props={}) => {
     // clear the root element
-    const rootEl = "";
+    const newRoot = rootEl;
+    newRoot.innerHTML = "";
     // find the correct view in ROUTES for the pathname
-    // in case not found render the error view
-    // render the correct view passing the value of props
-    // add the view element to the DOM root element
+    const view = ROUTES[pathname];
+    if (view){
+        // render the correct view passing the value of props
+        const viewElement = view(props);
+        // add the view element to the DOM root element
+        newRoot.appendChild(viewElement);
+    } else {
+        // in case not found render the error view
+        newRoot.appendChild(ROUTES["/error"]);
+    }
   } 
   
   export const navigateTo = (pathname, props={}) => {
     // update window history with pushState
+    history.pushState({},"",pathname);
     // render the view with the pathname and props
   }
   
