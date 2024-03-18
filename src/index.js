@@ -40,7 +40,3 @@ window.addEventListener("DOMContentLoaded", () => {
   setRootEl(root);
   onURLChange(window.location);
 });
-
-const botonHome = document.querySelector("id=botonHome");
-botonHome.addEventListener("click", () => 
-  navigateTo("/Home"));

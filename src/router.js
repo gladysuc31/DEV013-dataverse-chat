@@ -47,15 +47,16 @@ const renderView = (pathname, props = {}) => {
 
 export const navigateTo = (pathname, props = {}) => {
   // update window history with pushState
-  if (props.new) {
-    const newURL = `${pathname}?new=${props}`;
-    window.history.pushState({}, "", newURL);
-  } 
-  else {
-    window.history.pushState({}, "", pathname);
-  }
+	history.pushState({}, "", pathname);
+	// separar con ?
+	const separatedURL = pathname.split('?');
+	// declarar pathname
+	pathname = separatedURL[0];
+	// declarar props
+	props = separatedURL[1];
+	const objectProps = queryStringToObject(props);
   // render the view with the pathname and props
-  renderView(pathname, props);
+  renderView(pathname, objectProps);
 };
 
 export const onURLChange = (location) => {
