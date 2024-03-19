@@ -21,7 +21,7 @@ import { Api } from './views/Api.js';
 import { Chat } from './views/Chat.js';
 import { Error404 } from './views/Error404.js';
 import { Home } from './views/Home.js';
-import { setRootEl, setRoutes, navigateTo, onURLChange } from './router.js';
+import { setRootEl, setRoutes, onURLChange } from './router.js';
 
 
 const routes = {
@@ -40,3 +40,9 @@ window.addEventListener("DOMContentLoaded", () => {
   setRootEl(root);
   onURLChange(window.location);
 });
+
+// Handle URL changes
+window.addEventListener('popstate',({}) => {
+ onURLChange(window.location);
+});
+
