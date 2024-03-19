@@ -1,4 +1,4 @@
-//import { navigateTo } from "../router.js";
+import { navigateTo } from "../router.js";
 
 export const Chat = () => {
   const viewEl = document.createElement("div");
