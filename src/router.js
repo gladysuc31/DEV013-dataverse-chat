@@ -7,16 +7,7 @@ export const setRootEl = (el) => {
 };
 
 export const setRoutes = (routes) => {
-  // optional Throw errors if routes isn't an object
-  // optional Throw errors if routes doesn't define an /error route
-  // assign ROUTES
-  /*if (typeof routes === "object") {
-    throw new Error('routes is not an object');
-  }
-  if (routes !== "/error404") {
-    throw new Error('routes is not an /error route');
-  }*/
-  ROUTES = routes;
+	ROUTES = routes;
 };
 
 const queryStringToObject = (queryString) => {
@@ -41,9 +32,9 @@ const renderView = (pathname, props = {}) => {
   } 
   else {
     // in case not found render the error view
-    newRoot.appendChild(ROUTES["/error"]);
+    newRoot.appendChild(ROUTES["/error404"]());
   }
-}
+};
 
 export const navigateTo = (pathname, props = {}) => {
   // update window history with pushState
@@ -67,11 +58,4 @@ export const onURLChange = (location) => {
   const newSearchObject = queryStringToObject(searchParams);
   // render the view with the pathname and object
   return renderView(pathname, newSearchObject);
-}
-
-/* parse the location for the pathname and search params
-const onURLChange = window.location.origin;
-// convert the search params to an object
-const props = queryStringToObject(URLSearchParams);
-// render the view with the pathname and object
-renderView (pathname,props)*/
+};
