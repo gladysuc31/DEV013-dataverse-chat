@@ -1,4 +1,4 @@
-import { navigateTo } from "../router.js";
+// import { navigateTo } from "../router.js";
 
 export const Error404 = () => {
   const viewEl = document.createElement("div");
