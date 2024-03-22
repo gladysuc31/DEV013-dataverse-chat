@@ -1,46 +1,23 @@
 import { navigateTo } from "../router.js";
 
-export const Regresar = () => {
-  const viewEl = document.createElement("div");
-  
-  viewEl.innerHTML = `<button id="botonRegresar">Regresar</button>`;
-  
-  const botonRegresar = viewEl.querySelector("#botonRegresar");
-  botonRegresar.addEventListener("click", () => {
-   navigateTo("/",{});
-  });
-
- return viewEl;
-};
-
-
-
 export const Api = () => { 
-
   const ApiDiv = document.createElement("div"); 
+  ApiDiv.classList.add("apiDiv"); 
 
-  ApiDiv.classList.add("ApiDiv"); 
+  ApiDiv.innerHTML =
+  `<section class="apiSection">
+    <button class="homeButton">Home</button>  
+    <p class="apiTitle">Ingresar</p> 
+    <textarea class="textApi" placeholder="Escribe aquí la API KEY..."></textarea>
+    <div class="botones">
+    <button class="guardar">Guardar</button>
+    <button class="eliminar">Eliminar</button>
+    </div>
+  </section>`; 
 
-ApiDiv.innerHTML =  
-
-`<section class="API"> 
-
-<label>API KEY </label> 
-
-<p>Ingresar</p> 
-
-<textarea placeholder="Escribe aquí la API KEY..."></textarea> 
-       <button>Guardar</button> 
-       <button>Eliminar</button> 
-
-</section>`; 
-
- 
-
+  const returnHome = ApiDiv.querySelector(".homeButton");
+  returnHome.addEventListener("click", () => {
+    navigateTo("/",{})});
+  
 return ApiDiv; 
-
-}
-
- 
-
- 
+} 
