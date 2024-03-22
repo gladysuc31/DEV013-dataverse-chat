@@ -79,3 +79,17 @@ header {
 	margin-bottom: 7px;
 }
 
+.error404 {
+color: greenyellow;
+background-image: url('./images/mike\ y\ sully.png');
+width: 520px;
+height: 520px;
+margin-top: 10 px ;
+margin-left: 350px ;
+margin-bottom: 40px;
+align-items: center;
+}
+
+.chat {
+color:azure
+}

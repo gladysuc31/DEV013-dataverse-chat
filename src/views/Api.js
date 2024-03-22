@@ -1,17 +1,20 @@
 import { navigateTo } from "../router.js";
 
-//export const Api = () => {
-  //const viewEl = document.createElement("div");
+export const Regresar = () => {
+  const viewEl = document.createElement("div");
   
-  //viewEl.innerHTML = `<button id="botonHome">Home</button>`;
+  viewEl.innerHTML = `<button id="botonRegresar">Regresar</button>`;
   
-  //const botonHome = viewEl.querySelector("#botonHome");
-  //botonHome.addEventListener("click", () => {
-   // navigateTo("/",{});
-  //});
+  const botonRegresar = viewEl.querySelector("#botonRegresar");
+  botonRegresar.addEventListener("click", () => {
+   navigateTo("/",{});
+  });
 
- // return viewEl;
-//};
+ return viewEl;
+};
+
+
+
 export const Api = () => { 
 
   const ApiDiv = document.createElement("div"); 
@@ -36,7 +39,7 @@ ApiDiv.innerHTML =
 
 return ApiDiv; 
 
-} 
+}
 
  
 
