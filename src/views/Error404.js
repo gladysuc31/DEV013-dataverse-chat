@@ -14,7 +14,7 @@ Error404.innerHTML =
 
  <p>Página no encontrada</p> 
 
-        <div class="imagen"> 
+        <div class="imagen"></div>
         <button>Volver al inicio</button> 
 
 </section>`; 
