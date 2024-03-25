@@ -24,7 +24,7 @@ return chatDiv;
 //<div class="description"></div>
 // </section>`; 
 
-
+/*
 const renderMovieItems = (data) => {
 	let html = '';
 	data.forEach(function(pelicula) {
@@ -40,7 +40,7 @@ const renderMovieItems = (data) => {
 	});
 	const ul= `<ul class="moviesUl">${html}</ul>`;
 	return ul;
-	};
+	}; */
 
 
  
