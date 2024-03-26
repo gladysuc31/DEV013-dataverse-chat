@@ -3,5 +3,5 @@ export const getApiKey = () => {
  };
  
  export const setApiKey = (apiKey) => {
-    localStorage.setItem("llave", apiKey);
+   return localStorage.setItem("llave", apiKey);
  };
