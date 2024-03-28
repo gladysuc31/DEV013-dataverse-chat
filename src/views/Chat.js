@@ -1,20 +1,20 @@
-// import { navigateTo } from "../router.js";
+import { navigateTo } from "../router.js";
+import data from '../data/dataset.js';
 
-export const Chat = () => { 
+export const Chat = (pelicula) => { 
 
   const chatDiv = document.createElement("div"); 
 
-  chatDiv.classList.add("chatDiv"); 
-
-chatDiv.innerHTML =  
-
-`<section class="chat"> 
-<div class="container">
-<textarea placeholder="Escribe aquí..."></textarea> 
-<p><button type="button">Enviar</button></p> 
-<button>Regresar</button> 
-</section>`; 
-return chatDiv; 
+  chatDiv.classList.add("chatDiv");
+  chatDiv.innerHTML = 
+  `<section class="chat"> 
+	<div class="container">
+  <h2 class="movieTitle">${data.name}</h2>
+	<textarea placeholder="Escribe aquí..."></textarea> 
+	<p><button type="button">Enviar</button></p> 
+	<button>Regresar</button> 
+	</section>`; 
+	return chatDiv; 
 
 }
 //`<section class="card"> 
@@ -25,7 +25,7 @@ return chatDiv;
 // </section>`; 
 
 
-const renderMovieItems = (data) => {
+/*const renderMovieItems = (data) => {
 	let html = '';
 	data.forEach(function(pelicula) {
 	html += `<li class="tarjeta" itemscope itemtype="pelicula">
@@ -40,7 +40,7 @@ const renderMovieItems = (data) => {
 	});
 	const ul= `<ul class="moviesUl">${html}</ul>`;
 	return ul;
-	}; 
+	}; */
 
 
  
