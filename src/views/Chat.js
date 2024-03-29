@@ -1,4 +1,4 @@
-import { navigateTo } from "../router.js";
+import { navigateTo} from "../router.js";
 import data from '../data/dataset.js';
 
 export const Chat = (pelicula) => { 
@@ -14,9 +14,13 @@ export const Chat = (pelicula) => {
 	<p><button type="button">Enviar</button></p> 
 	<button>Regresar</button> 
 	</section>`; 
+
 	return chatDiv; 
 
 }
+
+
+
 //`<section class="card"> 
 //<div class="card.description"></div>
 //<div class="name"></div>
