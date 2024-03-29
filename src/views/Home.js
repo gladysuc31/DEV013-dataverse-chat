@@ -1,4 +1,4 @@
-// import { navigateTo } from "../router.js";
+import { navigateTo } from "../router.js";
 import data from '../data/dataset.js';
 import { filtrarPelicula, ordenarPelicula, calcularRating } from '../lib/dataFunctions.js';
 
@@ -64,6 +64,7 @@ export const Home = () => {
 	const filtrarGenero = homeDiv.querySelector("[data-testid=select-filter]");
 	const resetButton = homeDiv.querySelector("[data-testid=button-clear]");
 	const statsButton = homeDiv.querySelector("[id=estadística]");
+	const chatButton = homeDiv.querySelector(".chatButton");
 
 	let valoractual = [...data];
 
@@ -86,6 +87,16 @@ export const Home = () => {
 	statsButton.addEventListener("click", function(){
 	const calcular = calcularRating(valoractual);
 	alert("El promedio de rating es: "+ calcular);
+	});
+
+	chatButton.addEventListener("click", () => {
+		const params = new URLSearchParams();
+		params.append('id', data.id);
+	
+		
+		const queryString = params.toString();
+		
+		navigateTo(`/chat?${queryString}`);
 	});
 
 	return homeDiv;
