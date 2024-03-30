@@ -1,7 +1,7 @@
 import { navigateTo} from "../router.js";
 import data from '../data/dataset.js';
 
-export const Chat = (pelicula) => { 
+export const Chat = () => { 
 
   const chatDiv = document.createElement("div"); 
 
@@ -9,7 +9,7 @@ export const Chat = (pelicula) => {
   chatDiv.innerHTML = 
   `<section class="chat"> 
 	<div class="container">
-  <h2 class="movieTitle">${data.name}</h2>
+  	<h2 class="movieTitle">${data.name}</h2>
 	<textarea placeholder="Escribe aquí..."></textarea> 
 	<p><button type="button">Enviar</button></p> 
 	<button>Regresar</button> 

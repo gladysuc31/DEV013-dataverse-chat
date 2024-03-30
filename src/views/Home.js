@@ -40,31 +40,43 @@ export const Home = () => {
 
 	// Render movie items
 	const renderMovieItems = (data) => {
-	let html = '';
-	data.forEach(function(pelicula) {
-	html += `<li class="tarjeta" itemscope itemtype="pelicula">
-	  <dl>
-		<img class="movieImg" src="${pelicula.imageUrl}" alt="Imagen de la película: ${pelicula.name}" />
-		<dt><dd class='movieName'>${pelicula.name}</dd></dt>
-		<dt><dd class='movieShortDes'>Descripción: ${pelicula.shortdescription}</dd></dt>
-		<dt><dd class='movieFacts' itemprop='facts'>Rating: ${pelicula.facts.rating}</dd></dt>
-		</dl>
-		<button class="chatButton">🗨️</button>
-		</li>`;
+	  const ul = document.createElement("ul");
+	  ul.classList.add("moviesUl");
+	  data.forEach(pelicula => {
+	    const li = document.createElement("li");
+	    li.classList.add("tarjeta");
+	    li.setAttribute("itemscope", "");
+	    li.setAttribute("itemtype", "pelicula");
+	    li.innerHTML = `
+      <dl>
+      <img class="movieImg" src="${pelicula.imageUrl}" alt="Imagen de la película: ${pelicula.name}" />
+      <dt><dd class='movieName'>${pelicula.name}</dd></dt>
+      <dt><dd class='movieShortDes'>Descripción: ${pelicula.shortdescription}</dd></dt>
+      <dt><dd class='movieFacts' itemprop='facts'>Rating: ${pelicula.facts.rating}</dd></dt>
+      </dl>
+      <button class="chatButton">🗨️</button>
+      `;
+	  const chatButton = li.querySelector(".chatButton");
+	  chatButton.addEventListener("click", () => {
+	  navigateTo(`/chat?id=${pelicula.id}`);
+	  });
+	  ul.appendChild(li);
 	});
-	const ul= `<ul class="moviesUl">${html}</ul>`;
 	return ul;
 	};
 
-	homeDiv.innerHTML += `<div id="root2">${renderMovieItems(data)}</div>`;
+  const rootDos = document.createElement("div");
+  rootDos.classList.add("root2");
+  rootDos.appendChild(renderMovieItems(data));
+  
+  homeDiv.append(rootDos);
 
 	// Event listeners
-	const root2 = homeDiv.querySelector("#root2");
+	const root2 = homeDiv.querySelector(".root2");
 	const sortRating = homeDiv.querySelector("[data-testid=select-sort]");
 	const filtrarGenero = homeDiv.querySelector("[data-testid=select-filter]");
 	const resetButton = homeDiv.querySelector("[data-testid=button-clear]");
 	const statsButton = homeDiv.querySelector("[id=estadística]");
-	const chatButton = homeDiv.querySelector(".chatButton");
 
 	let valoractual = [...data];
 
@@ -87,16 +99,6 @@ export const Home = () => {
 	statsButton.addEventListener("click", function(){
 	const calcular = calcularRating(valoractual);
 	alert("El promedio de rating es: "+ calcular);
-	});
-
-	chatButton.addEventListener("click", () => {
-		const params = new URLSearchParams();
-		params.append('id', data.id);
-	
-		
-		const queryString = params.toString();
-		
-		navigateTo(`/chat?${queryString}`);
 	});
 
 	return homeDiv;
