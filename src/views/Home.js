@@ -99,22 +99,6 @@ export const Home = () => {
 		root2.appendChild(renderMovieItems(data));
 	});
 
-	// sortRating.addEventListener("change", function(event) {
-	// 	root2.appendChild= renderMovieItems(ordenarPelicula(valoractual,"rating",event.target.value));
-	// });
-
-	// filtrarGenero.addEventListener("change", function(event) {
-	// 	const filtrar = filtrarPelicula(data,"generoDePelicula",event.target.value);
-	// 	valoractual = [...filtrar];
-	// 	root2.appendChild = renderMovieItems(filtrar);
-	// });
-
-	// resetButton.addEventListener("click", function() {
-	// filtrarGenero.selectedIndex = 0;
-	// sortRating.selectedIndex = 0;
-	// root2.appendChild = renderMovieItems(data);
-	// });
-
 	statsButton.addEventListener("click", function(){
 	const calcular = calcularRating(valoractual);
 	alert("El promedio de rating es: "+ calcular);
