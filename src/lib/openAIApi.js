@@ -30,5 +30,6 @@ export const communicateWithOpenAI= async (pelicula, input) =>{
          ],
       }),
    });
+   console.log(responseIA);
    return responseIA; 
 }; 
