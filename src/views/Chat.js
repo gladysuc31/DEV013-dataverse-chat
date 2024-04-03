@@ -46,8 +46,3 @@ export const Chat = () => {
 	const ul= `<ul class="moviesUl">${html}</ul>`;
 	return ul;
 	}; */
-
-
- 
-
- 

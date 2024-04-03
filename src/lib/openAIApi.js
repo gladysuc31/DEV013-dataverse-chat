@@ -1,14 +1,11 @@
 // Importa la función para obtener la API KEY desde apiKey.js
 import { getApiKey } from './apiKey.js';
-
 /*export const communicateWithOpenAI = (messages) => {
 /Aquí es donde debes implementar la petición con fetch o axios
 }; */
-
 export const communicateWithOpenAI= async (pelicula, input) =>{
    const apiKey = getApiKey ();
    const apiUrl = "https://api.openai.com/v1/chat/completions";
- 
    const responseIA = await fetch(apiUrl, {
       method: "POST",
       Headers: {
@@ -20,7 +17,7 @@ export const communicateWithOpenAI= async (pelicula, input) =>{
          messages: [
             {
                role:"system",
-               content: `Tu eres una película de Pixar ${pelicula} y debes comportarte amigable, divertido, 
+               content: `Tu eres una película de Pixar ${pelicula} y debes comportarte amigable, divertido,
                educativo, con valores, puedes compartir tus facts mas destacados y debes responder en primera persona.`
              },
              {
@@ -29,10 +26,24 @@ export const communicateWithOpenAI= async (pelicula, input) =>{
              },
          ],
       }),
+   });
+   const data = await responseIA.json()
+   .then(response => {
+      if (!response.ok) {
+        throw new Error('Hubo un problema con la respuesta del servidor.');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
    console.log(responseIA);
-   return responseIA; 
-}; 
+   return responseIA;
+};
 
-// await 
-// fetch 
-// consumir promesa 
+
+
+
