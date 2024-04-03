@@ -9,7 +9,7 @@ export const communicateWithOpenAI= async (pelicula, input) =>{
    const apiKey = getApiKey ();
    const apiUrl = "https://api.openai.com/v1/chat/completions";
  
-   const responseIA = fetch(apiUrl, {
+   const responseIA = await fetch(apiUrl, {
       method: "POST",
       Headers: {
          "Content-Type": "application/json",
@@ -30,6 +30,23 @@ export const communicateWithOpenAI= async (pelicula, input) =>{
          ],
       }),
    });
+   const data = await responseIA.json()
+   .then(response => {
+      if (!response.ok) {
+        throw new Error('Hubo un problema con la respuesta del servidor.');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
    console.log(responseIA);
    return responseIA; 
 }; 
+
+// await 
+// fetch 
+// consumir promesa 
