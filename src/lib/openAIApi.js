@@ -29,20 +29,6 @@ export const communicateWithOpenAI= async (pelicula, input) =>{
              },
          ],
       }),
-   });
-   const data = await responseIA.json()
-   .then(response => {
-      if (!response.ok) {
-        throw new Error('Hubo un problema con la respuesta del servidor.');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
    console.log(responseIA);
    return responseIA; 
 }; 
