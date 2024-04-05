@@ -5,11 +5,12 @@ import { getApiKey } from './apiKey.js';
 /Aquí es donde debes implementar la petición con fetch o axios
 }; */
 
-export const communicateWithOpenAI= async (pelicula, input) =>{
+export const communicateWithOpenAI=  (pelicula, input) =>{
    const apiKey = getApiKey ();
    const apiUrl = "https://api.openai.com/v1/chat/completions";
  
-   const responseIA = await fetch(apiUrl, {
+   
+   const responseIA =  fetch(apiUrl, {
       method: "POST",
       Headers: {
          "Content-Type": "application/json",
@@ -30,23 +31,16 @@ export const communicateWithOpenAI= async (pelicula, input) =>{
          ],
       }),
    });
-   const data = await responseIA.json()
-   .then(response => {
-      if (!response.ok) {
-        throw new Error('Hubo un problema con la respuesta del servidor.');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-   console.log(responseIA);
-   return responseIA; 
+   responseIA.then((result)=> {
+
+      const formatedresult = result.json();
+      console.log (formatedresult);
+      formatedresult.then ((jsobject)=>{
+         console.log (jsobject);
+         return jsobject;
+      })
+      
+      
+   }) 
 }; 
 
-// await 
-// fetch 
-// consumir promesa 

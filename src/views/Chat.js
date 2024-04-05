@@ -3,7 +3,7 @@ import data from '../data/dataset.js';
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
 
 export const Chat = () => { 
-	console.log(communicateWithOpenAI(data.name, "Quien eres?"));
+console.log	(communicateWithOpenAI(data.name, "Quien eres?"));
   const chatDiv = document.createElement("div"); 
 
   chatDiv.classList.add("chatDiv");
