@@ -3,14 +3,14 @@ import { getApiKey } from './apiKey.js';
 /*export const communicateWithOpenAI = (messages) => {
 /Aquí es donde debes implementar la petición con fetch o axios
 }; */
-export const communicateWithOpenAI= async (pelicula, input) =>{
-   const apiKey = getApiKey ();
-   const apiUrl = "https://api.openai.com/v1/chat/completions";
-   const responseIA = await fetch(apiUrl, {
+export const communicateWithOpenAI= (pelicula, input) =>{
+   const apiKey = getApiKey();
+   console.log(apiKey);
+   return fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
-      Headers: {
+      headers: {
          "Content-Type": "application/json",
-         "Authorization": `Bearer ${apiKey}`,
+         "Authorization": "Bearer " + apiKey,
       },
       body: JSON.stringify({
          model: "gpt-3.5-turbo",
@@ -26,24 +26,15 @@ export const communicateWithOpenAI= async (pelicula, input) =>{
              },
          ],
       }),
-   });
-   const data = await responseIA.json()
-   .then(response => {
-      if (!response.ok) {
-        throw new Error('Hubo un problema con la respuesta del servidor.');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-   console.log(responseIA);
-   return responseIA;
+   })
+   .then((result) =>{
+      return result.json();
+   })
+   .then((datafech)=>{
+      console.log(datafech);
+      return datafech;
+   })
+   .catch(error=>{
+   console.log(error);
+   })
 };
-
-
-
-

@@ -1,4 +1,5 @@
 import { navigateTo } from "../router.js";
+import { setApiKey } from "../lib/apiKey.js";
 
 export const Api = () => { 
   const ApiDiv = document.createElement("div"); 
@@ -14,6 +15,13 @@ export const Api = () => {
     <button class="eliminar">Eliminar</button>
     </div>
   </section>`; 
+
+  const apiKey = ApiDiv.querySelector(".textApi");
+  const saveApiKey = ApiDiv.querySelector(".guardar");
+
+  saveApiKey.addEventListener("click", function () {
+    setApiKey(apiKey.value);
+  });
 
   const returnHome = ApiDiv.querySelector(".homeButton");
   returnHome.addEventListener("click", () => {
