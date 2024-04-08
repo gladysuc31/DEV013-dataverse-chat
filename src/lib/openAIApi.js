@@ -9,7 +9,7 @@ export const communicateWithOpenAI=  (pelicula, input) =>{
    const apiUrl = "https://api.openai.com/v1/chat/completions";
  
    
-   const responseIA =  fetch(apiUrl, {
+   const fetchpromiseresult =  fetch(apiUrl, {
       method: "POST",
       headers: {
          "Content-Type": "application/json",
@@ -30,16 +30,17 @@ export const communicateWithOpenAI=  (pelicula, input) =>{
          ],
       }),
    });
-   responseIA.then((result)=> {
+    return fetchpromiseresult.then((result)=> {
 
-      const formatedresult = result.json();
-      console.log (formatedresult);
-      formatedresult.then ((jsobject)=>{
-         console.log (jsobject);
-         return jsobject;
+      const formatedpromiseresult = result.json();
+      return formatedpromiseresult
+      //console.log (formatedresult);
+      
+        // console.log (jsobject);
+        
       })
       
       
-   }) 
-}; 
+   }
+
 
