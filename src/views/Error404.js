@@ -1,4 +1,4 @@
-// import { navigateTo } from "../router.js";
+import { navigateTo } from "../router.js";
 
 export const Error404 = () => { 
 
@@ -9,15 +9,16 @@ export const Error404 = () => {
 Error404.innerHTML =  
 
 `<section class="error404"> 
-
- <label>Error 404</label> 
-
- <p>Página no encontrada</p> 
-
-        <div class="imagen"></div>
-        <button>Volver al inicio</button> 
-
+ <h1 class="errorTitle">Error 404</h1> 
+ <h2 class="errorMsg">Página no encontrada</h2> 
+  <div class="imagen">
+    <img src="images/mike y sully.png" class="errorImg">
+  </div>
+  <button class="homeBtn">Volver al inicio</button> 
 </section>`; 
-
+const homeButton = Error404.querySelector(".homeBtn");
+	  homeButton.addEventListener("click", () => {
+	  navigateTo("/");
+	  });
 return Error404; 
 }

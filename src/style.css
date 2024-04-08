@@ -81,15 +81,49 @@ header {
 }
 
 /* error 404 page */
+.Error404Div {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
 .error404 {
-	color: greenyellow;
-	background-image: url('./images/mike\ y\ sully.png');
-	width: 520px;
-	height: 520px;
-	margin-top: 10px ;
-	margin-left: 350px ;
-	margin-bottom: 40px;
+	width: 600px;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
+	justify-content: space-around;
+	border-radius: 15px;
+	background-color: whitesmoke;
+}
+
+.errorTitle {
+	color: #02274a;
+	font-family:'Roboto Mono', monospace;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.errorMsg {
+	color: #02274a;
+	font-family:'Roboto Mono', monospace;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.errorImg {
+	width: 350px;
+	height: 250px;
+}
+
+.homeBtn {
+	border-radius: 15px;
+	background-color: #02274a;
+	font-family: 'Roboto Mono', monospace;
+	color: white;
+	font-size: 20px;
+	padding: 5px;
 }
 
 /*chat page */
