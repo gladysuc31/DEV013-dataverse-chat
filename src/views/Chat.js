@@ -2,25 +2,51 @@ import { navigateTo} from "../router.js";
 import data from '../data/dataset.js';
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
 
-export const Chat = () => { 
-	console.log(communicateWithOpenAI(data.name, "Quien eres?"));
+export const Chat = (pelicula) => { 
+
   const chatDiv = document.createElement("div"); 
 
-//export const Chat = () => { 
-//const promiseresponse = communicateWithOpenAI(data.name, "Quien eres?");
-// promiseresponse.then ((response)=>{console.log (response)});
-  //const chatDiv = document.createElement("div"); 
-
+  const newPelicula = data.find((peliculaId) => peliculaId.id === pelicula.id)
   chatDiv.classList.add("chatDiv");
   chatDiv.innerHTML = 
-  `<section class="chat"> 
-	<div class="container">
-  	<h2 class="movieTitle">${data.name}</h2>
-	<textarea placeholder="Escribe aquí..."></textarea> 
-	<p><button type="button">Enviar</button></p> 
+  `<section class="chatSection"> 
+	<div class="movieDetails">
+	<h2 class="tituloPelicula">${newPelicula.name}</h2>
+	<img class="imgPelicula" src="${newPelicula.imageUrl}">
+	<p class="descriptionMovie">${newPelicula.description}</p>
+	</div>
+	<div class="chatContainer">
+	<div class="chatArea">
+	<textarea class="inputMsg" placeholder="Escribe aquí..."></textarea> 
+	<button class="enviarBtn">Enviar</button>
+	</div>
 	<button>Regresar</button> 
+	</div>
 	</section>`; 
 
-	return chatDiv; 
+	const enviarBtn = chatDiv.querySelector(".enviarBtn");
+  	const inputMsg = chatDiv.querySelector(".inputMsg");
+	const areaChat = chatDiv.querySelector(".chatArea");
 
+	enviarBtn.addEventListener("click", () => {
+		const mensaje = inputMsg.value
+
+		if (mensaje !== "") {
+			const msjArea = document.createElement("div");
+			msjArea.classList.add("msjDiv");
+			msjArea.innerHTML = mensaje;
+			areaChat.appendChild(msjArea);
+			inputMsg.value = "";
+
+			communicateWithOpenAI(mensaje, newPelicula.name)
+			.then((dataFech) => {
+				const responseArea = document.createElement("div");
+				responseArea.classList.add("responseDiv");
+				responseArea.innerHTML = `${dataFech.choices[0].message.content}`;
+				areaChat.appendChild(responseArea);
+			})
+		}
+	})
+	
+	return chatDiv; 
 }

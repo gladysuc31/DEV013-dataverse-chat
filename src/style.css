@@ -131,6 +131,11 @@ header {
 	color:azure
 }
 
+.imgPelicula {
+	width: 200px;
+	height: 250px;
+}
+
 /* Api view styles */
 .apiDiv {
 	display: flex;

@@ -20,8 +20,8 @@ export const communicateWithOpenAI=  (pelicula, input) =>{
          messages: [
             {
                role:"system",
-               content: `Tu eres una película de Pixar ${pelicula} y debes comportarte amigable, divertido,
-               educativo, con valores, puedes compartir tus facts mas destacados y debes responder en primera persona.`
+               content: `Tu eres una película de Pixar ${pelicula} y debes comportarte amigable,
+               educativo, debes responder en primera persona con respuestas cortas.`
              },
              {
                role: "user",
