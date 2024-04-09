@@ -3,10 +3,13 @@ import { getApiKey } from './apiKey.js';
 /*export const communicateWithOpenAI = (messages) => {
 /Aquí es donde debes implementar la petición con fetch o axios
 }; */
-export const communicateWithOpenAI= (pelicula, input) =>{
-   const apiKey = getApiKey();
-   console.log(apiKey);
-   return fetch("https://api.openai.com/v1/chat/completions", {
+
+export const communicateWithOpenAI=  (pelicula, input) =>{
+   const apiKey = getApiKey ();
+   const apiUrl = "https://api.openai.com/v1/chat/completions";
+ 
+   
+   const fetchpromiseresult =  fetch(apiUrl, {
       method: "POST",
       headers: {
          "Content-Type": "application/json",
@@ -26,15 +29,18 @@ export const communicateWithOpenAI= (pelicula, input) =>{
              },
          ],
       }),
-   })
-   .then((result) =>{
-      return result.json();
-   })
-   .then((datafech)=>{
-      console.log(datafech);
-      return datafech;
-   })
-   .catch(error=>{
-   console.log(error);
-   })
-};
+   });
+    return fetchpromiseresult.then((result)=> {
+
+      const formatedpromiseresult = result.json();
+      return formatedpromiseresult
+      //console.log (formatedresult);
+      
+        // console.log (jsobject);
+        
+      })
+      
+      
+   }
+
+

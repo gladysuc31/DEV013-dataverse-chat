@@ -6,6 +6,11 @@ export const Chat = () => {
 	console.log(communicateWithOpenAI(data.name, "Quien eres?"));
   const chatDiv = document.createElement("div"); 
 
+//export const Chat = () => { 
+//const promiseresponse = communicateWithOpenAI(data.name, "Quien eres?");
+// promiseresponse.then ((response)=>{console.log (response)});
+  //const chatDiv = document.createElement("div"); 
+
   chatDiv.classList.add("chatDiv");
   chatDiv.innerHTML = 
   `<section class="chat"> 
