@@ -17,9 +17,9 @@ export const Chat = (pelicula) => {
 	</div>
 	<div class="chatContainer">
 	<div class="chatArea">
+	</div>
 	<textarea class="inputMsg" placeholder="Escribe aquí..."></textarea> 
 	<button class="enviarBtn">Enviar</button>
-	</div>
 	<button>Regresar</button> 
 	</div>
 	</section>`; 

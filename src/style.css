@@ -127,13 +127,61 @@ header {
 }
 
 /*chat page */
-.chat {
-	color:azure
+.chatSection {
+	display: flex;
+	gap: 20px;
+}
+
+.movieDetails {
+	margin-top: 30px;
+	margin-left: 30px;
+	background-color: whitesmoke;
+	border-radius: 15px;
+	width: 300px;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	justify-content: space-around;
+	padding: 20px;
 }
 
 .imgPelicula {
 	width: 200px;
 	height: 250px;
+}
+
+.chatContainer {
+	background-color: whitesmoke;
+	border-radius: 15px;
+	width: 400px;
+	height: 500px;
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	padding: 20px;
+}
+
+.inputMsg {
+	resize: none;
+	width: 100%;
+}
+
+.msjDiv {
+	background-color: #02274a;
+	border-radius: 15px;
+	padding: 7px;
+	width: fit-content;
+}
+
+.responseDiv {
+	background-color: gray;
+	border-radius: 15px;
+	padding: 7px;
+	width: fit-content;
 }
 
 /* Api view styles */
