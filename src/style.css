@@ -175,6 +175,7 @@ header {
 	border-radius: 15px;
 	padding: 7px;
 	width: fit-content;
+	color: white;
 }
 
 .responseDiv {
@@ -182,6 +183,7 @@ header {
 	border-radius: 15px;
 	padding: 7px;
 	width: fit-content;
+	color: white;
 }
 
 /* Api view styles */

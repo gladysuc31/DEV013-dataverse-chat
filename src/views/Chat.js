@@ -1,15 +1,15 @@
-import { navigateTo} from "../router.js";
+//import { navigateTo} from "../router.js";
 import data from '../data/dataset.js';
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
 
-export const Chat = (pelicula) => { 
+export const Chat = (pelicula) => {
 
-  const chatDiv = document.createElement("div"); 
+	const chatDiv = document.createElement("div");
 
-  const newPelicula = data.find((peliculaId) => peliculaId.id === pelicula.id)
-  chatDiv.classList.add("chatDiv");
-  chatDiv.innerHTML = 
-  `<section class="chatSection"> 
+	const newPelicula = data.find((peliculaId) => peliculaId.id === pelicula.id)
+	chatDiv.classList.add("chatDiv");
+	chatDiv.innerHTML =
+		`<section class="chatSection"> 
 	<div class="movieDetails">
 	<h2 class="tituloPelicula">${newPelicula.name}</h2>
 	<img class="imgPelicula" src="${newPelicula.imageUrl}">
@@ -22,10 +22,10 @@ export const Chat = (pelicula) => {
 	<button class="enviarBtn">Enviar</button>
 	<button>Regresar</button> 
 	</div>
-	</section>`; 
+	</section>`;
 
 	const enviarBtn = chatDiv.querySelector(".enviarBtn");
-  	const inputMsg = chatDiv.querySelector(".inputMsg");
+	const inputMsg = chatDiv.querySelector(".inputMsg");
 	const areaChat = chatDiv.querySelector(".chatArea");
 
 	enviarBtn.addEventListener("click", () => {
@@ -39,14 +39,14 @@ export const Chat = (pelicula) => {
 			inputMsg.value = "";
 
 			communicateWithOpenAI(mensaje, newPelicula.name)
-			.then((dataFech) => {
-				const responseArea = document.createElement("div");
-				responseArea.classList.add("responseDiv");
-				responseArea.innerHTML = `${dataFech.choices[0].message.content}`;
-				areaChat.appendChild(responseArea);
-			})
+				.then((dataFech) => {
+					const responseArea = document.createElement("div");
+					responseArea.classList.add("responseDiv");
+					responseArea.innerHTML = `${dataFech.choices[0].message.content}`;
+					areaChat.appendChild(responseArea);
+				})
 		}
 	})
-	
-	return chatDiv; 
+
+	return chatDiv;
 }

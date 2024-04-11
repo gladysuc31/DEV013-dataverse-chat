@@ -2,14 +2,15 @@
     "env": {
       "browser": true,
       "es6": true,
-      "jest": true
+      "jest": true,
+      
     },
     "parserOptions": {
       "ecmaVersion": 2020,
       "sourceType": "module"
     },
     "extends": "eslint:recommended",
-    "plugins": ["import"],
+    "plugins": ["import"], 
     "rules": {
       "no-console": "warn",
       "import/extensions": 0,

@@ -1,14 +1,26 @@
-import { communicateWithOpenAI } from "../src/lib/openAIApi";
+/* eslint-disable */
+import { communicateWithOpenAI } from "../src/lib/openAIApi.js";
 
-describe("communicateWithOpenIA",() => {
-    test ("communicateWuthOpenAI debería enviar una solicitud a la Api de OpenAI y devolver los datos exitosamente", fetch ()=>{
-        const respuesta = {choices:[{message:{ content:`Soy una respuesta` }}];
-        global.fetch = jest.fn (() => Promise.resolve ({(respuesta)})
-    )
-        const data = communicateWithOpenAI ("Este es un msj",{
-            input:"pelicula"
+describe("communicateWithOpenIA", () => {
+    test("communicateWithOpenAI debería enviar una solicitud a la API de OpenAI y devolver los datos exitosamente", async () => {
+        const respuesta = {
+            choices: [
+                {
+                    message: {
+                        content: "Soy una respuesta"
+                    }
+                }
+            ]
+        };
 
+        global.fetch = jest.fn(() => Promise.resolve({
+            json: () => Promise.resolve(respuesta)
+        }));
+
+        const data = await communicateWithOpenAI("Este es un msj", {
+            input: "pelicula"
         });
-        expect (typeof(data)).toEqual ('object');
-});
+
+        expect(typeof(data)).toEqual('object');
+    });
 });
