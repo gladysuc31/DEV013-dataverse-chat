@@ -33,11 +33,7 @@ export const communicateWithOpenAI=  (pelicula, input) =>{
     return fetchpromiseresult.then((result)=> {
 
       const formatedpromiseresult = result.json();
-      return formatedpromiseresult
-      //console.log (formatedresult);
-      
-        // console.log (jsobject);
-        
+      return formatedpromiseresult  
       })
       
       
