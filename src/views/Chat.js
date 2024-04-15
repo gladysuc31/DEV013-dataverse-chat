@@ -1,6 +1,7 @@
 //import { navigateTo} from "../router.js";
 import data from '../data/dataset.js';
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
+import { navigateTo } from '../router.js';
 
 export const Chat = (pelicula) => {
 
@@ -20,13 +21,18 @@ export const Chat = (pelicula) => {
 	</div>
 	<textarea class="inputMsg" placeholder="Escribe aquí..."></textarea> 
 	<button class="enviarBtn">Enviar</button>
-	<button>Regresar</button> 
+	<button class="btnRegresar">Regresar</button> 
 	</div>
 	</section>`;
 
 	const enviarBtn = chatDiv.querySelector(".enviarBtn");
 	const inputMsg = chatDiv.querySelector(".inputMsg");
 	const areaChat = chatDiv.querySelector(".chatArea");
+
+	const botonRegresar = chatDiv.querySelector(".btnRegresar");
+	botonRegresar.addEventListener("click", () => {
+    navigateTo("/");
+	})
 
 	enviarBtn.addEventListener("click", () => {
 		const mensaje = inputMsg.value

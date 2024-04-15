@@ -6,13 +6,12 @@ export const Api = () => {
   ApiDiv.classList.add("apiDiv"); 
 
   ApiDiv.innerHTML =
-  `<section class="apiSection">
-    <button class="homeButton">Home</button>  
+  `<section class="apiSection"> 
     <p class="apiTitle">Ingresar</p> 
     <textarea class="textApi" placeholder="Escribe aquí la API KEY..."></textarea>
     <div class="botones">
     <button class="guardar">Guardar</button>
-    <button class="eliminar">Eliminar</button>
+    <button class="homeButton">Home</button> 
     </div>
   </section>`; 
 
